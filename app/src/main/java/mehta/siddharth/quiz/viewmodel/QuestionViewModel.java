@@ -16,6 +16,7 @@ public class QuestionViewModel extends AndroidViewModel {
     private LiveData<List<Question>> allQuestions;
     public QuestionViewModel(@NonNull Application application) {
         super(application);
+        questionRepository = new QuestionRepository(application);
         allQuestions = questionRepository.getAllQuestions();
     }
 

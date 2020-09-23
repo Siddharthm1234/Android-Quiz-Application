@@ -13,7 +13,7 @@ public class QuestionRepository {
     public QuestionRepository(Application application){
         QuestionDatabase database = QuestionDatabase.getInstance(application);
         questionDao = database.questionDao();
-        questionDao.getAllQuestions();
+        allQuestions = questionDao.getAllQuestions();
     }
 
     public LiveData<List<Question>> getAllQuestions(){
