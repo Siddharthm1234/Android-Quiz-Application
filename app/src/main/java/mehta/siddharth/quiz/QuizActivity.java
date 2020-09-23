@@ -93,7 +93,6 @@ public class QuizActivity extends AppCompatActivity {
     private void setQuestionOnUI(){
         radioGroup.clearCheck();
         totalQuestions = questionList.size();
-
         if(questionNumber<totalQuestions){
             currQuestion = questionList.get(questionNumber);
             questionNumberTextView.setText("QUESTION: "+questionNumber+1);
