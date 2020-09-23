@@ -70,21 +70,16 @@ public class QuizActivity extends AppCompatActivity {
     private void setQuestionOnUI(){
         radioGroup.clearCheck();
         totalQuestions = questionList.size();
+        currQuestion = questionList.get(questionNumber);
+        questionNumberTextView.setText("QUESTION: "+questionNumber+1);
+        questionTextView.setText(currQuestion.getQuestion());
+        rb1.setText(currQuestion.getOptionA());
+        rb2.setText(currQuestion.getOptionB());
+        rb3.setText(currQuestion.getOptionC());
+        rb4.setText(currQuestion.getOptionD());
+        questionNumber++;
+        answered = false;
 
-        if(questionNumber < totalQuestions){
-            currQuestion = questionList.get(questionNumber);
-            questionNumberTextView.setText("QUESTION: "+questionNumber+1);
-            questionTextView.setText(currQuestion.getQuestion());
-            rb1.setText(currQuestion.getOptionA());
-            rb2.setText(currQuestion.getOptionB());
-            rb3.setText(currQuestion.getOptionC());
-            rb4.setText(currQuestion.getOptionD());
-            questionNumber++;
-            answered = false;
-        }
-        else{
-            //TODO: leave page
-        }
     }
 
     private void startQuiz() {
@@ -108,12 +103,17 @@ public class QuizActivity extends AppCompatActivity {
         answered = true;
         int rbSelected = radioGroup.getCheckedRadioButtonId();
         RadioButton radioButton = radioGroup.findViewById(rbSelected);
-        int idx = radioGroup.indexOfChild(radioButton);
+        int idx = radioGroup.indexOfChild(radioButton)+1;
 
         if(idx == currQuestion.getAnswer()){
             markScored+=1;
         }
-        setQuestionOnUI();
+        if(questionNumber<totalQuestions){
+            setQuestionOnUI();
+        }else{
+            Toast.makeText(this, "Marks scored"+ markScored+ " / "+ totalQuestions, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }
