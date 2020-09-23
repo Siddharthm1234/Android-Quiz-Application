@@ -12,19 +12,40 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/questionNumberTextView"
+
+            <TextView
+                android:id="@+id/questionNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/endless_journey"
+                android:gravity="left"
+                android:layout_marginStart="16dp"
+                android:text="Question"
+                android:textColor="@android:color/white"
+                android:textSize="32dp"
+                android:textStyle="bold"></TextView>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/endless_journey"
-            android:gravity="center"
-            android:text="Question"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            android:textStyle="bold"></TextView>
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/colorAccent"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -127,16 +148,7 @@
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:textColor="@color/colorAccent"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

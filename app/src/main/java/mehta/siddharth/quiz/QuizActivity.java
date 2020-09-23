@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -101,6 +102,7 @@ public class QuizActivity extends AppCompatActivity {
     private void setQuestionOnUI(){
         radioGroup.clearCheck();
         totalQuestions = questionList.size();
+        Collections.shuffle(questionList);
         if(questionNumber<totalQuestions){
             currQuestion = questionList.get(questionNumber);
             int stepNumber = questionNumber+1;
