@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = Question.class, version = 1)
 public abstract class QuestionDatabase extends RoomDatabase {
-    
+
     private static QuestionDatabase instance;
 
     public abstract QuestionDao questionDao();
