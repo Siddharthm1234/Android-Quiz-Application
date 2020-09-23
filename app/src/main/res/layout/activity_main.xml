@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:background="@drawable/rounded_corners"
+        android:background="@drawable/rounded_corners_purple"
         android:text="Start!"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
