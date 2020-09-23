@@ -45,6 +45,8 @@ public abstract class QuestionDatabase extends RoomDatabase {
         protected Void doInBackground(Void... voids) {
             questionDao.insert(new Question("What is Question1?", "option1", "option2", "option3", "option4", 1));
             questionDao.insert(new Question("What is Question2?", "optionA", "optionB", "optionC", "optionD", 4));
+            questionDao.insert(new Question("What is Question3?", "optionA", "optionB", "optionC", "optionD", 4));
+            questionDao.insert(new Question("What is Question4?", "optionA", "optionB", "optionC", "optionD", 4));
             return null;
         }
     }

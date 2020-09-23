@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ProviderInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mehta.siddharth.quiz.model.Question;
@@ -26,11 +29,14 @@ public class QuizActivity extends AppCompatActivity {
     private Button nextButton;
     private int markScored = 0;
 
-    List<Question> questionList;
+    List<Question> questionList = new ArrayList<>();
     Question currQuestion;
 
     boolean answered;
     private int questionNumber = 0, totalQuestions;
+
+    public static final String MARKS_SCORED = "mehta.siddharth.quiz.marks_scored";
+    public static final String TOTAL_QUESTIONS = "mehta.siddharth.quiz.total_questions";
 
     private QuestionViewModel questionViewModel;
     @Override
@@ -67,21 +73,6 @@ public class QuizActivity extends AppCompatActivity {
         startQuiz();
     }
 
-    private void setQuestionOnUI(){
-        radioGroup.clearCheck();
-        totalQuestions = questionList.size();
-        currQuestion = questionList.get(questionNumber);
-        questionNumberTextView.setText("QUESTION: "+questionNumber+1);
-        questionTextView.setText(currQuestion.getQuestion());
-        rb1.setText(currQuestion.getOptionA());
-        rb2.setText(currQuestion.getOptionB());
-        rb3.setText(currQuestion.getOptionC());
-        rb4.setText(currQuestion.getOptionD());
-        questionNumber++;
-        answered = false;
-
-    }
-
     private void startQuiz() {
         setQuestionOnUI();
 
@@ -99,6 +90,23 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
+    private void setQuestionOnUI(){
+        radioGroup.clearCheck();
+        totalQuestions = questionList.size();
+
+        if(questionNumber<totalQuestions){
+            currQuestion = questionList.get(questionNumber);
+            questionNumberTextView.setText("QUESTION: "+questionNumber+1);
+            questionTextView.setText(currQuestion.getQuestion());
+            rb1.setText(currQuestion.getOptionA());
+            rb2.setText(currQuestion.getOptionB());
+            rb3.setText(currQuestion.getOptionC());
+            rb4.setText(currQuestion.getOptionD());
+            questionNumber++;
+            answered = false;
+        }
+    }
+
     private void quizOperation(){
         answered = true;
         int rbSelected = radioGroup.getCheckedRadioButtonId();
@@ -111,7 +119,10 @@ public class QuizActivity extends AppCompatActivity {
         if(questionNumber<totalQuestions){
             setQuestionOnUI();
         }else{
-            Toast.makeText(this, "Marks scored"+ markScored+ " / "+ totalQuestions, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getBaseContext(), ResultActivity.class)
+                    .putExtra(MARKS_SCORED, markScored)
+                    .putExtra(TOTAL_QUESTIONS, totalQuestions);
+            startActivity(intent);
         }
 
     }
