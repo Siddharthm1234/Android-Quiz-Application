@@ -66,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
+                android:textSize="16sp"
                 android:background="@drawable/bottom_line_radio_button"
                 android:text="RadioButton"
                 android:textColor="@android:color/white" />
@@ -75,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
+                android:textSize="16sp"
                 android:text="RadioButton"
                 android:background="@drawable/bottom_line_radio_button"
                 android:textColor="@android:color/white" />
@@ -84,6 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
+                android:textSize="16sp"
                 android:text="RadioButton"
                 android:background="@drawable/bottom_line_radio_button"
                 android:textColor="@android:color/white" />
@@ -93,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
+                android:textSize="16sp"
                 android:background="@drawable/bottom_line_radio_button"
                 android:textColor="@android:color/white" />
 
