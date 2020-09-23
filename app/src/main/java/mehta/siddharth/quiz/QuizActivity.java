@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ProviderInfo;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -17,13 +18,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import mehta.siddharth.quiz.model.Question;
 import mehta.siddharth.quiz.viewmodel.QuestionViewModel;
 
 public class QuizActivity extends AppCompatActivity {
 
-    private TextView questionTextView,questionNumberTextView;
+    private TextView questionTextView,questionNumberTextView, timerTextView;
     private RadioGroup radioGroup;
     private RadioButton rb1, rb2, rb3, rb4;
     private Button nextButton;
@@ -38,6 +40,10 @@ public class QuizActivity extends AppCompatActivity {
     public static final String MARKS_SCORED = "mehta.siddharth.quiz.marks_scored";
     public static final String TOTAL_QUESTIONS = "mehta.siddharth.quiz.total_questions";
 
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
+
     private QuestionViewModel questionViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class QuizActivity extends AppCompatActivity {
 
         questionTextView = findViewById(R.id.questionTextView);
         questionNumberTextView = findViewById(R.id.questionNumberTextView);
+        timerTextView = findViewById(R.id.timerTextView);
         radioGroup = findViewById(R.id.radioGroup);
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
@@ -70,6 +77,8 @@ public class QuizActivity extends AppCompatActivity {
     private void fetchQuestion(List<Question> questions){
         questionList = questions;
         startQuiz();
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
     }
 
     private void startQuiz() {
@@ -126,5 +135,34 @@ public class QuizActivity extends AppCompatActivity {
         }
 
     }
+    private void startCountDown(){
+        countDownTimer =  new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
 
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+            }
+        }.start();
+    }
+    public void updateCountDownText(){
+        int minute = (int) (timeLeftInMillis/1000)/60;
+        int seconds = (int) (timeLeftInMillis/1000)%60;
+
+        String timeFormat = String.format(Locale.getDefault(), "%02d:%02d", minute, seconds);
+        timerTextView.setText(timeFormat);
+
+        if(timeLeftInMillis ==0 ){
+            Intent intent = new Intent(getBaseContext(), ResultActivity.class)
+                    .putExtra(MARKS_SCORED, markScored)
+                    .putExtra(TOTAL_QUESTIONS, totalQuestions);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 }
