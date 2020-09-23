@@ -61,7 +61,6 @@ public class QuizActivity extends AppCompatActivity {
         questionViewModel.getAllQuestions().observe(this, new Observer<List<Question>>() {
             @Override
             public void onChanged(List<Question> questions) {
-                Toast.makeText(QuizActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
                 fetchQuestion(questions);
             }
         });
@@ -95,7 +94,8 @@ public class QuizActivity extends AppCompatActivity {
         totalQuestions = questionList.size();
         if(questionNumber<totalQuestions){
             currQuestion = questionList.get(questionNumber);
-            questionNumberTextView.setText("QUESTION: "+questionNumber+1);
+            int stepNumber = questionNumber+1;
+            questionNumberTextView.setText("QUESTION: "+ stepNumber);
             questionTextView.setText(currQuestion.getQuestion());
             rb1.setText(currQuestion.getOptionA());
             rb2.setText(currQuestion.getOptionB());
@@ -121,6 +121,7 @@ public class QuizActivity extends AppCompatActivity {
             Intent intent = new Intent(getBaseContext(), ResultActivity.class)
                     .putExtra(MARKS_SCORED, markScored)
                     .putExtra(TOTAL_QUESTIONS, totalQuestions);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
 

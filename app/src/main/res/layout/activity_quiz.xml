@@ -57,14 +57,14 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="?android:attr/dividerHorizontal"
-            android:showDividers="middle">>
+            >
 
             <RadioButton
                 android:id="@+id/rb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
+                android:background="@drawable/radio_button_divider"
                 android:text="RadioButton"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:padding="24dp"
                 android:text="RadioButton"
+                android:background="@drawable/radio_button_divider"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
 
@@ -84,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:padding="24dp"
                 android:text="RadioButton"
+                android:background="@drawable/radio_button_divider"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
 
@@ -93,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:padding="24dp"
                 android:text="RadioButton"
+                android:background="@drawable/radio_button_divider"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
 

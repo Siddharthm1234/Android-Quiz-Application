@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/frameLayout1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -20,16 +20,25 @@
 
         <TextView
             android:id="@+id/resultTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="165dp"
+            android:breakStrategy="simple"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="134dp"
             android:text="Scored"
             android:textColor="@android:color/white"
             android:textSize="80dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-    </FrameLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/exitButton"
@@ -37,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:background="@drawable/rounded_corners_red"
-        android:text="Exit!"
+        android:text="Exit"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
         android:background="@drawable/rounded_corners_red"
-        android:text="Restart!"
+        android:text="Restart"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
