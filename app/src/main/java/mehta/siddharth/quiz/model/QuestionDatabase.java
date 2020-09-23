@@ -43,10 +43,11 @@ public abstract class QuestionDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            questionDao.insert(new Question("What is Question1?", "option1", "option2", "option3", "option4", 1));
-            questionDao.insert(new Question("What is Question2?", "optionA", "optionB", "optionC", "optionD", 4));
-            questionDao.insert(new Question("What is Question3?", "optionA", "optionB", "optionC", "optionD", 4));
-            questionDao.insert(new Question("What is Question4?", "optionA", "optionB", "optionC", "optionD", 4));
+            questionDao.insert(new Question("What is Kaleyra, Inc.'s stock symbol?", "KLR", "KAL", "KAY", "KYA", 1));
+            questionDao.insert(new Question("When was Kaleyra, Inc. incorporated?", "2020", "1997", "1999", "2005", 3));
+            questionDao.insert(new Question("When does Kaleyra, Inc.'s fiscal year end?", "31st December", "1st May", "15th April", "2nd July ", 1));
+            questionDao.insert(new Question("Where is Kaleyra corporate headquarters?", "Washington DC", "Bangalore, India", "Moscow, Russia", "Milan, Italy", 4));
+            questionDao.insert(new Question("Who is CEO of Kaleyra?", "Julia Pulzone", "Dario Calogero", "Ashish Agarwal", "Emilio Hirsch", 2));
             return null;
         }
     }
