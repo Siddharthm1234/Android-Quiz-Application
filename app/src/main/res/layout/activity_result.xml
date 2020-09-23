@@ -33,6 +33,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="134dp"
             android:text="Scored"
+            android:fontFamily="@font/endless_journey"
             android:textColor="@android:color/white"
             android:textSize="80dp"
             android:textStyle="bold"

@@ -28,7 +28,7 @@ public class ResultActivity extends AppCompatActivity {
         int marksScored = intent.getIntExtra(QuizActivity.MARKS_SCORED, 0);
         int totalQuestions = intent.getIntExtra(QuizActivity.TOTAL_QUESTIONS, 0);
 
-        resultTextView.setText("Scored:\n    "+ marksScored +" / "+ totalQuestions);
+        resultTextView.setText("Scored:\n"+ marksScored +" / "+ totalQuestions);
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
