@@ -21,18 +21,19 @@
 
         <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="179dp"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/ImageView"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="44dp"
+            android:layout_marginBottom="16dp"
             android:breakStrategy="simple"
             android:fontFamily="@font/endless_journey"
-            android:text="@string/kaleyra_quiz"
+            android:text="Quiz"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="80dp"
             android:textStyle="bold"
@@ -40,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/kaleyraImageView"
+            android:id="@+id/ImageView"
             android:layout_width="400dp"
             android:layout_height="160dp"
 

@@ -43,11 +43,11 @@ public abstract class QuestionDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            questionDao.insert(new Question("What is Kaleyra, Inc.'s stock symbol?", "KLR", "KAL", "KAY", "KYA", 1));
-            questionDao.insert(new Question("When was Kaleyra, Inc. incorporated?", "2020", "1997", "1999", "2005", 3));
-            questionDao.insert(new Question("When does Kaleyra, Inc.'s fiscal year end?", "31st December", "1st May", "15th April", "2nd July ", 1));
-            questionDao.insert(new Question("Where is Kaleyra corporate headquarters?", "Washington DC", "Bangalore, India", "Moscow, Russia", "Milan, Italy", 4));
-            questionDao.insert(new Question("Who is CEO of Kaleyra?", "Julia Pulzone", "Dario Calogero", "Ashish Agarwal", "Emilio Hirsch", 2));
+            questionDao.insert(new Question("Which protocol is used to send E-mail?", "HTTP", "FTP", "POP3", "SMTP", 4));
+            questionDao.insert(new Question("What is the full form of HTTP?", "Hyper Transfer Text Protocol", "Hyper Text Transfer Protocol", "Hexagonal Text Transfer Protocol", "Hyper Text Transfer Prototype", 2));
+            questionDao.insert(new Question("Random Access Memory (RAM) is which storage of device?", "Primary", "Secondary", "Tertiary", "None of the above", 1));
+            questionDao.insert(new Question("What is the size of IP v-4 address?", "16-bits", "8-bits", "32-bits", "24-bits", 3));
+            questionDao.insert(new Question("In computer, what is the smallest and basic unit of information storage?", "Bit", "Byte", "Mega byte", "Newton", 1));
             return null;
         }
     }
